@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+docker run --rm -it -p 8088:8088 -v $HOME/projects/docker/webserver/src:/webserver  --name webdev webserver:develop /bin/sh

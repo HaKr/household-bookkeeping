@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+docker run --name dbserver -e MYSQL_ROOT_PASSWORD=ScottT\!g3r -e MYSQL_DATABASE=ledger -e MYSQL_USER=app -e MYSQL_PASSWORD=Alm\!ghty1 -v $HOME/projects/^Ccker/dbserver/data:/var/lib/mysql/ledger -p 3306:3306 -d mariadb --character-set-server=utf8mb4 --character-set-client=utf8mb4  --collation-server=utf8mb4_unicode_ci

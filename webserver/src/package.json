@@ -1,0 +1,38 @@
+{
+  "name": "webserver",
+  "version": "0.0.1",
+  "description": "Web server for the household bookkeeping app",
+  "main": "model_server.ts",
+  "scripts": {
+    "start": "ts-node ./model_server.ts",
+    "groups": "ts-node ./group_test.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/HaKr/bookkeeping-web.git"
+  },
+  "author": "Harry de Kroon",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/HaKr/bookkeeping-web/issues"
+  },
+  "homepage": "https://github.com/HaKr/bookkeeping-web#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.5",
+    "ts-node": "^8.4.1",
+    "tslint": "^6.0.0-beta0",
+    "typescript": "^3.6.4",
+    "typescript-tslint-plugin": "^0.5.4"
+  },
+  "dependencies": {
+    "@overnightjs/core": "^1.6.9",
+    "@overnightjs/logger": "^1.1.9",
+    "express": "^4.17.1",
+    "mysql2": "^2.0.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.20"
+  }
+}
