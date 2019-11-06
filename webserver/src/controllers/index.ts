@@ -1,1 +1,1 @@
-export * from "./jjdk_controller";
+export * from "./group_controller";
