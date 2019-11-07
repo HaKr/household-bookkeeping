@@ -8,10 +8,10 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/webserver/src/model_server.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
+            "program": "${workspaceFolder}/webserver/fixture/20191107_create_group_base.ts",
+            "preLaunchTask": "build Typescript",
             "outFiles": [
-                "${workspaceFolder}/build/**/*.js"
+                "${workspaceFolder}/webserver/build/**/*.js"
             ]
         }
     ]

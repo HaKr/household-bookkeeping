@@ -1,6 +1,6 @@
 {
    "type": "mariadb",
-   "host": "172.17.0.3",
+   "host": "172.17.0.2",
    "port": 3306,
    "username": "app",
    "password": "Alm!ghty1",
@@ -8,7 +8,7 @@
    "synchronize": false,
    "logging": ["query", "error", "warn", "schema"],
    "entities": [
-      "./entity/**/*.ts"
+      "./entity/**/*.ts", "./**/build/entity/*.js"
    ],
    "migrations": [
       "./migration/**/*.ts"
@@ -17,8 +17,8 @@
       "./subscriber/**/*.ts"
    ],
    "cli": {
-      "entitiesDir": "build/entity",
-      "migrationsDir": "build/migration",
-      "subscribersDir": "build/subscriber"
+      "entitiesDir": "./build/entity",
+      "migrationsDir": "./build/migration",
+      "subscribersDir": "./build/subscriber"
    }
 }

@@ -5,6 +5,7 @@
   "main": "model_server.ts",
   "scripts": {
     "start": "ts-node ./model_server.ts",
+    "fixture:group-base": "ts-node ./fixture/20191107_create_group_base.ts",
     "groups": "ts-node ./group_test.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc"

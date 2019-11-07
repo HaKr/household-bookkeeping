@@ -14,11 +14,12 @@
       "emitDecoratorMetadata": true,
       "moduleResolution": "node",
       "importHelpers": true,
+      "sourceMap": true,
       "types": [
         "node"
       ],
       "typeRoots": [
-        "node_modules/@types"
+        "./node_modules/@types"
       ]
     },
     "include": [
