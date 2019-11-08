@@ -1,0 +1,135 @@
+[
+    {
+        "date": "2019-10-01",
+        "description": "a) Salaris OL",
+        "transactions": [
+            { "account": "1201", "amount": 3400, "sign": 1 },
+            { "account": "9221", "amount": 3400, "sign": -1 },
+            { "account": "9934", "amount": 3400, "sign": 1 },
+            { "account": "0251", "amount": 1200, "sign": -1 },
+            { "account": "0231", "amount": 1600, "sign": -1 },
+
+            { "account": "0261", "amount":   60, "sign": -1 },
+            { "account": "0263", "amount":   50, "sign": -1 },
+            { "account": "0271", "amount":  250, "sign": -1 },
+            { "account": "0279", "amount":  150, "sign": -1 },
+            { "account": "0281", "amount":   30, "sign": -1 },
+            { "account": "0299", "amount":   60, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-03",
+        "description": "b) Gezamenlijke bijdrage",
+        "transactions": [
+            { "account": "2000", "amount": 1600, "sign": 1 },
+            { "account": "1201", "amount": 1600, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-05",
+        "description": "c) Kinderalimentatie F&M",
+        "transactions": [
+            { "account": "4251", "amount": 810, "sign": 1 },
+            { "account": "1201", "amount": 810, "sign": -1 },
+            { "account": "0251", "amount": 810, "sign": 1 },
+            { "account": "9934", "amount": 810, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-07",
+        "description": "d) Lidl shop: SUP board",
+        "transactions": [
+            { "account": "4299", "amount": 300, "sign": 1 },
+            { "account": "1201", "amount": 300, "sign": -1 },
+            { "account": "0299", "amount": 300, "sign": 1 },
+            { "account": "9934", "amount": 300, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-09",
+        "description": "e) Lidl",
+        "transactions": [
+            { "account": "4361", "amount": 90, "sign": 1 },
+            { "account": "1201", "amount": 90, "sign": -1 },
+            { "account": "0299", "amount": 90, "sign": 1 },
+            { "account": "9321", "amount": 90, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-11",
+        "description": "f) SUP betaald door De Judomat",
+        "transactions": [
+            { "account": "1201", "amount": 300, "sign": 1 },
+            { "account": "9221", "amount": 300, "sign": -1 },
+            { "account": "9934", "amount": 300, "sign": 1 },
+            { "account": "0299", "amount": 300, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-02",
+        "description": "k) Bijdrage Harry",
+        "transactions": [
+            { "account": "1301", "amount": 1600, "sign": 1 },
+            { "account": "2000", "amount": 1600, "sign": -1 },
+            { "account": "0231", "amount": 1600, "sign": 1 },
+            { "account": "9321", "amount": 1600, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-04",
+        "description": "l) Bijdrage Cindy",
+        "transactions": [
+            { "account": "1301", "amount": 800, "sign": 1 },
+            { "account": "9311", "amount": 800, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-06",
+        "description": "z) Gezamenlijke bijdragen naar budgetten",
+        "transactions": [
+            { "account": "9934", "amount": 2400, "sign": 1 },
+            { "account": "0351", "amount": 1600, "sign": -1 },
+            { "account": "0361", "amount":  800, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-08",
+        "description": "m) Bijdrage Harry",
+        "transactions": [
+            { "account": "4351", "amount": 1100, "sign": 1 },
+            { "account": "1301", "amount": 1100, "sign": -1 },
+            { "account": "0351", "amount": 1100, "sign": 1 },
+            { "account": "9934", "amount": 1100, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-10",
+        "description": "n) Lidl",
+        "transactions": [
+            { "account": "4361", "amount": 100, "sign": 1 },
+            { "account": "1301", "amount": 100, "sign": -1 },
+            { "account": "0351", "amount": 100, "sign": 1 },
+            { "account": "9934", "amount": 100, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-12",
+        "description": "o) Koffie bij Cas",
+        "transactions": [
+            { "account": "4363", "amount": 25, "sign": 1 },
+            { "account": "1301", "amount": 25, "sign": -1 },
+            { "account": "0351", "amount": 25, "sign": 1 },
+            { "account": "9934", "amount": 25, "sign": -1 }
+        ]
+    },
+    {
+        "date": "2019-10-14",
+        "description": "p) Heilbron gezinspakket",
+        "transactions": [
+            { "account": "4353", "amount": 170, "sign": 1 },
+            { "account": "1301", "amount": 170, "sign": -1 },
+            { "account": "0351", "amount": 170, "sign": 1 },
+            { "account": "9934", "amount": 170, "sign": -1 }
+        ]
+    }
+]

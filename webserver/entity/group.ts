@@ -24,10 +24,14 @@ export class Group extends SharedEntityColumns {
     @TreeParent()
     parent: Group | null = null;
 
+    @Column( { length: 8, nullable: true } )
+    category!: string;
+
     @TreeChildren()
     groups!: Group[];
 
     @OneToMany( type => Account, account => account.group )
     accounts!: Account[]
 
+    amount: number = 0.00;
 }

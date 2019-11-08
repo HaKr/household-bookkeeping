@@ -1,0 +1,29 @@
+Nr,Naam,Maandbudget,,Nr,Naam,Maandbudget,,,Nr,Naam,Maandbudget
+4111,Hypotheek,1.170,,4211,Kindrekening B&B,200,,4251,4311,Kinderalimentatie F&M,815
+4112,Nutsvoorzieningen,210,,4212,Assurantiën Bo & Bengt,70,,4257,4312,Afbetaling ouders,50
+4113,Assurantiën,105,,4213,Assurantiën,215,,4253,4313,Assurantiën,245
+4114,Telecom,90,,4214,Telecom,0,,4254,4314,Telecom,45
+4115,Abonnementen,100,,4215,Sporten,0,,4255,4315,Abonnementen en bankkosten,40
+,Subtotaal vaste lasten,1.675,,,Subtotaal vaste lasten,485,,,,Subtotaal vaste lasten,1.195
+,,,,,,,,,,,
+4121,Boodschappen,565,,4221,"Kleding, schoenen & kapper",100,,4261,4321,"Kleding, schoenen & kapper",60
+4122,Servicekosten,85,,4222,Vervoer,200,,4271,4322,Vervoer,250
+4123,overig,50,,4223,overig,40,,,4323,overig,40
+,subtotaal huishoudelijk,700,,,subtotaal variabel,340,,,,subtotaal variabel,350
+,,,,,,,,,,,
+4131,Vakantie,,,,,,,,,,
+,,,,,,,,,,,
+0101,Recreatie,100,,0201,Recreatie,30,,4263,0301,Recreatie,30
+0102,lokale lasten,90,,0202,Niet vergoede ziektekosten,35,,4281,0302,Niet vergoede ziektekosten,35
+0111,Inventaris,150,,0211,Reserve,40,,4269,0311,Reserve,40
+0112,Onderhoud huis & tuin,45,,0212,Afschrijving vervoersmiddelen,100,,4279,0312,Afschrijving vervoersmiddelen,150
+0121,Vakantiegeld,,,,,,,4258,0313,Afschrijving Megane en New York reis,25
+,subtotaal reserveringen,385,,,subtotaal reserveringen,205,,,,subtotaal reserveringen,280
+,,,,,,,,,,,
+,,,,4231,Bijdrage gezamenlijk,910,,0231,4331,Bijdrage gezamenlijk,1.600
+,,,,,,,,,,,
+,Totaal gezamenlijk,2.760,,9211,Inkomsten Cindy,1.940,,9221,9311,Inkomsten Harry,3.425
+,,,,,,,,,,,
+9121,Bijdrage Cindy,910,,,Maandelijkse overboeking = 9211 + 4212 + 4213,1.195,,,,,
+9131,Bijdrage Harry,1.600,,,,,,,,,
+9111,Belastingteruggave,250,,,,,,,,,

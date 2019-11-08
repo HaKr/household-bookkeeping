@@ -12,8 +12,10 @@ export class AccountTransaction extends SharedEntityColumns {
     @ManyToOne( type => Account, account => account.transactions )
     account!: Account
 
-    @Column()
-    sign: DebitOrCredit = DebitOrCredit.Debit;
+    @Column( {
+        default: DebitOrCredit.Debit
+    })
+    sign!: DebitOrCredit;
 
     @Column( {type:"decimal", precision: 11, scale: 2})
     amount: number = 0.00;

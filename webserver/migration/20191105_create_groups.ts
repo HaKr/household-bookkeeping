@@ -33,10 +33,11 @@ export class GroupFixtures1572971720506 implements MigrationInterface{
             groupsByNumber.set( newGroup.number, newGroup );
             if ( masterGroup.parent )
             {
+                newGroup.category = masterGroup.parent;
                 if ( groupsByNumber.has( masterGroup.parent) ) {
                     const parent = groupsByNumber.get( masterGroup.parent )!;
                     newGroup.parent = parent;
-                    newGroup.sign = parent.sign;
+                    newGroup.sign = masterGroup.sign!;
                 } else {
                     Logger.Err( `Parent "${masterGroup.parent}" was not found for ${masterGroup.number}, but is obligatory.` );
                     doSave = false;

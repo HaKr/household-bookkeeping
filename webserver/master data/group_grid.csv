@@ -1,0 +1,34 @@
+Naam,Type,Nr,Parent,used
+
+ING Cindy,F,1101,BL,1
+ING Harry,F,1201,BL,1
+ING Gezamenlijk,F,1301,BL,1
+ING Auto,F,1302,BL,1
+Overig,F,2000,BL,1
+
+Reserveringen Cindy,B,121,BR,2
+Budget variabele lasten Cindy,B,1216,121,6
+
+Reserveringen Harry,B,122,BR,2
+Budget variabele lasten Harry,B,1226,122,6
+
+Reserveringen gezamenlijk,B,123,BR,3
+Budget variabele lasten gezamenlijk,B,1236,123,5
+
+Uitgaven Cindy,R,211,EL,0
+Vaste lasten Cindy,R,2115,211,5
+Variabele lasten Cindy,R,2116,211,6
+
+Uitgaven Harry,R,212,EL,0
+Vaste lasten Harry,R,2125,212,6Variabele lasten Harry,R,2126,212,6
+Variabele lasten Harry,R,2126,212,6
+
+Gezamenlijke uitgaven,R,213,EL,0
+Gezamenlijke variabele lasten,R,2136,213,7
+Gezamenlijke vaste lasten,R,2135,213,6
+
+Dekking gezamenlijke uitgaven,R,221,ER,1
+Bijdragen aan gezamenlijk,R,2211,221,2
+
+Resultaat inkomens,R,222,ER,1
+Inkomens,R,2221,222,2

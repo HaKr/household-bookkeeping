@@ -1,0 +1,4 @@
+#/usr/bin/env sh
+node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:drop
+node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:sync
+node_modules/.bin/ts-node node_modules/typeorm/cli.js migration:run
