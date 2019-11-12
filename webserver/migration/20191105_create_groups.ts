@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner, Transaction, TransactionRepository, Repository } from "typeorm";
-import { Logger } from "@overnightjs/logger"
 import { DebitOrCredit } from "../constants";
 
 import { Group } from "../entity/group";
@@ -39,7 +38,7 @@ export class GroupFixtures1572971720506 implements MigrationInterface{
                     newGroup.parent = parent;
                     newGroup.sign = masterGroup.sign!;
                 } else {
-                    Logger.Err( `Parent "${masterGroup.parent}" was not found for ${masterGroup.number}, but is obligatory.` );
+                    console.error( `Parent "${masterGroup.parent}" was not found for ${masterGroup.number}, but is obligatory.` );
                     doSave = false;
                 }
             }

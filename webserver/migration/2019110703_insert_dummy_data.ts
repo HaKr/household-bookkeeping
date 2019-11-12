@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Transaction, TransactionRepository, Repository } from "typeorm";
+import { MigrationInterface, QueryRunner } from "typeorm";
 
 import { AccountRepository } from "../repository/account_repository";
 
@@ -7,7 +7,6 @@ import { JournalEntry } from '../entity/journal_entry';
 import { AccountTransaction } from '../entity/account_transaction';
 
 import * as config from "../master data/sample_journal.json";
-import { Logger } from '@overnightjs/logger';
 
 export class InsertDummyData implements MigrationInterface{
     name = "Insert dummy data 1573134559887"
@@ -36,7 +35,7 @@ export class InsertDummyData implements MigrationInterface{
                     await queryRunner.manager.save( accountTransaction );
                 } else {
                     failed += 1;
-                    Logger.Err( `Account "${number}" not found for ${journalEntry.description}.` );
+                    console.error( `Account "${number}" not found for ${journalEntry.description}.` );
                 }
             }
         }

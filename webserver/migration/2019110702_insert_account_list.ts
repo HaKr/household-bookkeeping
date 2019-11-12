@@ -1,6 +1,5 @@
 import * as csvtojson from "csvtojson";
 
-import { Logger } from '@overnightjs/logger';
 import { MigrationInterface, QueryRunner, Transaction, TransactionRepository, Repository } from "typeorm";
 
 import { GroupRepository } from '../repository/group_repository';
@@ -25,7 +24,7 @@ export class InsertGroupGrid implements MigrationInterface{
                 newAccount.group = parentGroup;
                 await queryRunner.manager.save( newAccount );    
             } else {
-                Logger.Err( `Account: Could not find group ${gridLine.SoortNr} for account ${gridLine.Nr}: ${gridLine.Naam}.` );
+                console.error( `Account: Could not find group ${gridLine.SoortNr} for account ${gridLine.Nr}: ${gridLine.Naam}.` );
                 failed += 1;
             }
         }

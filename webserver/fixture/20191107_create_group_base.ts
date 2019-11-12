@@ -2,8 +2,6 @@ import "reflect-metadata";
 
 import {createConnection, Connection, EntityManager, QueryFailedError} from "typeorm";
 
-import { Logger } from '@overnightjs/logger';
-
 import { DebitOrCredit } from "../constants";
 
 import { Group } from "../entity/group";
@@ -29,26 +27,26 @@ async function test( manager: EntityManager ){
     account1.number = "4351";
     account1.name = "Account 1";
     await manager.save( account1 );
-    Logger.Info( `Created account ${account1.id}`);
+    console.log( `Created account ${account1.id}`);
 
     const account2 = new Account();
     account2.number = "4361";
     account2.name = "Account 2";
     await manager.save( account2 );
-    Logger.Info( `Created account ${account2.id}`);
+    console.info( `Created account ${account2.id}`);
 
     const group1 = new Group()
     group1.number = "B";
     group1.name = "Group B";
     await manager.save( group1 );
-    Logger.Info( `Created account ${JSON.stringify(group1)}`);
+    console.info( `Created account ${JSON.stringify(group1)}`);
 
     const group2 = new Group()
     group2.number = "B1";
     group2.name = "Group B.1";
     group2.parent = group1;
     await manager.save( group2 );
-    Logger.Info( `Created account ${JSON.stringify(group2)}`);
+    console.info( `Created account ${JSON.stringify(group2)}`);
 
     return true;
 }
@@ -68,18 +66,18 @@ async function insertSchema( manager: EntityManager ){
         {
             if ( groupsByNumber.has( masterGroup.parent) ) {
                 const parent = groupsByNumber.get( masterGroup.parent )!;
-                Logger.Info(`Assign parent ${parent.number}(${parent.id}) to ${newGroup.number}(${newGroup.id})`);
+                console.log(`Assign parent ${parent.number}(${parent.id}) to ${newGroup.number}(${newGroup.id})`);
                 newGroup.parent = parent;
                 newGroup.sign = parent.sign;
             } else {
-                Logger.Err( `Parent "${masterGroup.parent}" was not found for ${masterGroup.number}, but is obligatory.` );
+                console.error( `Parent "${masterGroup.parent}" was not found for ${masterGroup.number}, but is obligatory.` );
                 doSave = false;
                 failed = true;
             }
         }
         if (doSave){
                 await manager.save( newGroup );
-                Logger.Info( `Created: ${newGroup.number}(${newGroup.id})`);
+                console.error( `Created: ${newGroup.number}(${newGroup.id})`);
         }
     }
 

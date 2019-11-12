@@ -8,7 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/webserver/fixture/20191107_create_group_base.ts",
+            "program": "${workspaceFolder}/webserver/model_server.ts",
+            "env": { "DEBUG": "*"},
             "preLaunchTask": "build Typescript",
             "outFiles": [
                 "${workspaceFolder}/webserver/build/**/*.js"

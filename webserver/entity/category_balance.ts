@@ -22,6 +22,6 @@ export class GroupCategoryBalance {
 
 
     @ViewColumn()
-    amount!: string
+    amount!: number 
 
 }

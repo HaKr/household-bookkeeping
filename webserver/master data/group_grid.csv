@@ -15,20 +15,23 @@ Budget variabele lasten Harry,B,1226,122,6
 Reserveringen gezamenlijk,B,123,BR,3
 Budget variabele lasten gezamenlijk,B,1236,123,5
 
-Uitgaven Cindy,R,211,EL,0
-Vaste lasten Cindy,R,2115,211,5
-Variabele lasten Cindy,R,2116,211,6
+Uitgaven,R,41,EL,1
+Uitgaven Cindy,R,411,41,0
+Vaste lasten Cindy,R,4115,411,5
+Variabele lasten Cindy,R,4116,411,6
 
-Uitgaven Harry,R,212,EL,0
-Vaste lasten Harry,R,2125,212,6Variabele lasten Harry,R,2126,212,6
-Variabele lasten Harry,R,2126,212,6
+Uitgaven Harry,R,412,41,0
+Vaste lasten Harry,R,4125,412,6
+Variabele lasten Harry,R,4126,412,6
 
-Gezamenlijke uitgaven,R,213,EL,0
-Gezamenlijke variabele lasten,R,2136,213,7
-Gezamenlijke vaste lasten,R,2135,213,6
+Gezamenlijke uitgaven,R,413,41,0
+Gezamenlijke variabele lasten,R,4136,413,7
+Gezamenlijke vaste lasten,R,4135,413,6
 
-Dekking gezamenlijke uitgaven,R,221,ER,1
-Bijdragen aan gezamenlijk,R,2211,221,2
+Budgetten,R,42,EL,1
 
-Resultaat inkomens,R,222,ER,1
-Inkomens,R,2221,222,2
+Kostendekking,R,91,ER,1
+
+Inkomens,R,92,ER,2
+
+Gezinsbijdragen,R,93,ER,1

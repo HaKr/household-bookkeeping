@@ -1,26 +1,25 @@
 import {getManager} from "typeorm";
 
 import { Request, Response } from 'express';
-import { Controller, Get, Post } from '@overnightjs/core';
+import { JsonController, Get, Post } from 'routing-controllers';
 // import { Logger } from '@overnightjs/logger';
 
 import { SUCCESS, ERROR } from '../http-status-codes';
 
 import { Group } from "../entity/group";
 import { GroupBalance } from '../entity/group_balance';
-import { Logger } from '@overnightjs/logger';
 
-@Controller('group[s]?')
+@JsonController('/group[s]?')
 export class GroupController {
     private groupRepository = getManager().getRepository(Group);
     private groupBalanceRepository = getManager().getRepository(GroupBalance);
     private treeRepository = getManager().getTreeRepository( Group );
 
     @Get()
-    private async getAll(_req: Request, res: Response) {
+    protected async getAll() {
         const groupTree = await this.treeRepository.findTrees();
         await this.getBalances( groupTree );
-        return res.status( SUCCESS.OK ).json( groupTree );
+        return groupTree;
     }
 
     @Post()
@@ -40,7 +39,7 @@ export class GroupController {
             const childSum = await this.getBalances( group.groups );
             group.amount = amount + childSum;
             sum += group.amount;
-            Logger.Info( `[${group.id}]${group.number}-${group.name}: ${group.sign} * ${group.amount}, ${childSum}, (${sum})` )
+            console.log( `[${group.id}]${group.number}-${group.name}: ${group.sign} * ${group.amount}, ${childSum}, (${sum})` )
         }
         return sum;
     }

@@ -3,7 +3,6 @@ import {Entity, Column, Index, ManyToOne, OneToMany, OneToOne, JoinColumn} from 
 import { SharedEntityColumns } from "../shared_enity_columns";
 import { Group } from './group';
 import { AccountTransaction } from './account_transaction';
-import { AccountBalance } from './account_balance';
 
 @Entity()
 export class Account extends SharedEntityColumns {

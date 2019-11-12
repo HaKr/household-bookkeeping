@@ -22,19 +22,22 @@
   "homepage": "https://github.com/HaKr/bookkeeping-web#readme",
   "devDependencies": {
     "@types/express": "^4.17.2",
-    "@types/node": "^12.12.6",
+    "@types/node": "^12.12.7",
     "csvtojson": "^2.0.10",
-    "ts-node": "^8.4.1",
+    "request": "^2.88.0",
+    "ts-node": "^8.5.0",
     "tslint": "^6.0.0-beta1",
     "typescript": "^3.7.2",
     "typescript-tslint-plugin": "^0.5.4"
   },
   "dependencies": {
-    "@overnightjs/core": "^1.6.9",
-    "@overnightjs/logger": "^1.1.9",
+    "@types/request": "^2.48.3",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1",
     "express": "^4.17.1",
     "mysql2": "^2.0.0",
     "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.8.0",
     "typeorm": "^0.2.20"
   }
 }

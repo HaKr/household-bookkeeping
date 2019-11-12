@@ -4,7 +4,6 @@ import { MigrationInterface, QueryRunner, Transaction, TransactionRepository, Re
 
 import { GroupRepository } from '../repository/group_repository';
 import { Group } from '../entity/group';
-import { Logger } from '@overnightjs/logger';
 
 type CsvStructure = Record<"Naam" | "Nr" | "Parent", string>;
 
@@ -26,7 +25,7 @@ export class InsertGroupGrid implements MigrationInterface{
                 newGroup.sign = groupParent.sign;
                 await queryRunner.manager.save( newGroup );
             } else {
-                Logger.Err( `Group: Could not find parent ${gridLine.Parent} for group ${gridLine.Nr}: ${gridLine.Naam}.\n\t${JSON.stringify(gridLine)}` );
+                console.error( `Group: Could not find parent ${gridLine.Parent} for group ${gridLine.Nr}: ${gridLine.Naam}.\n\t${JSON.stringify(gridLine)}` );
                 
                 failed += 1;
             }

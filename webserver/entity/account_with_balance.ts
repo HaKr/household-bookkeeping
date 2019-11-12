@@ -1,5 +1,4 @@
 import {ViewEntity, ViewColumn, Connection, ManyToOne} from "typeorm";
-import { Post } from '@overnightjs/core';
 import { Account } from './account';
 import { AccountBalance } from './account_balance';
 import { Group } from './group';
