@@ -1,7 +1,8 @@
-import {ViewEntity, ViewColumn, Connection, ManyToOne} from "typeorm";
+import {ViewEntity, ViewColumn, Connection, ManyToOne, OneToMany} from "typeorm";
 import { Account } from './account';
 import { AccountBalance } from './account_balance';
 import { Group } from './group';
+import { AccountTransaction } from './account_transaction';
 
 @ViewEntity({ 
     expression: (connection: Connection) => connection.createQueryBuilder()
@@ -27,7 +28,7 @@ export class AccountWithBalance {
     @ViewColumn()
     amount!: string
 
-    @ManyToOne( type => Group, group => group.accounts, {eager: true} )
+    @ManyToOne( type => Group )
     group!: Group
 
 }

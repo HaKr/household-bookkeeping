@@ -1,0 +1,143 @@
+[
+    {
+        "description": "Salaris Objectif Lune",
+        "validFor": [ 3330, 3500 ],
+        "transactions": [
+            { "account": "1201", "percentage": 100, "sign": 1 },
+            { "account": "0231", "percentage":  47, "sign": -1 },
+            { "account": "0251", "fixed": 1220, "sign": -1 },
+
+            { "account": "0261", "fixed":   60, "sign": -1 },
+            { "account": "0263", "fixed":   50, "sign": -1 },
+            { "account": "0271", "fixed":  250, "sign": -1 },
+            { "account": "0279", "fixed":  150, "sign": -1 },
+            { "account": "0281", "fixed":   35, "sign": -1 },
+            { "account": "0299",                "sign": -1 },
+
+            { "account": "9092", "percentage": 100, "sign": 1 },
+            { "account": "9211", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Bijdrage Harry naar Gezamenlijk",
+        "validFor": [ 0, -1800 ],
+        "transactions": [
+            { "account": "2000", "percentage": 100, "sign": 1 },
+            { "account": "1201", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Kinderalimentatie F&M",
+        "validFor": [ -100, -905 ],
+        "transactions": [
+            { "account": "0251", "percentage": 100, "sign": 1 },
+            { "account": "1201", "percentage": 100, "sign": -1 },
+            { "account": "4251", "percentage": 100, "sign": 1 },
+            { "account": "9411", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Boodschappen door Harry betaald",
+        "validFor": [ -1, -160 ],
+        "transactions": [
+            { "account": "0299", "percentage": 100, "sign": 1 },
+            { "account": "1201", "percentage": 100, "sign": -1 },
+            { "account": "4361", "percentage": 100, "sign": 1 },
+            { "account": "9231", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Voorlopige teruggaaf overgemaakt aan Harry",
+        "validFor": [ 250, 275 ],
+        "transactions": [
+            { "account": "1201", "percentage": 100, "sign":  1 },
+            { "account": "0231", "fixed": 250, "sign": -1 },
+            { "account": "0299",               "sign": -1 },
+            { "account": "9093", "percentage": 100, "sign":  1 },
+            { "account": "9331", "fixed": 250, "sign": -1 },
+            { "account": "9231",               "sign": -1 },
+            { "account": "9092", "percentage": 100, "sign":  1 },
+            { "account": "9311", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Bijdrage van Harry",
+        "validFor": [ 0, 1800 ],
+        "transactions": [
+            { "account": "1301", "percentage": 100, "sign":  1 },
+            { "account": "2000", "percentage": 100, "sign": -1 },
+            { "account": "9093", "percentage": 100, "sign": 1 },
+            { "account": "9231", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Bijdrage van Cindy",
+        "validFor": [ 800, 910 ],
+        "transactions": [
+            { "account": "1301", "percentage": 100, "sign":  1 },
+            { "account": "0131", "percentage": 100, "sign": -1 },
+            { "account": "9093", "percentage": 100, "sign":  1 },
+            { "account": "9131", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Gezamenlijke bijdragen naar budgetten",
+        "validFor": [ 0 ],
+        "transactions": [
+            { "account": "0131", "fixed":  910, "sign":  1 },
+            { "account": "0231", "fixed": 1850, "sign":  1 },
+            { "account": "0351", "fixed": 1765, "sign": -1 },
+            { "account": "0361", "fixed":  565, "sign": -1 },
+            { "account": "0362", "fixed":   85, "sign": -1 },
+            { "account": "0363", "fixed":  100, "sign": -1 },
+            { "account": "0371", "fixed":  150, "sign": -1 },
+            { "account": "0372", "fixed":   45, "sign": -1 },
+            { "account": "0399", "fixed":   50, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Hypotheek aflossing + rente",
+        "validFor": [ -1000, -1200 ],
+        "transactions": [
+            { "account": "0351", "percentage": 100, "sign": 1 },
+            { "account": "1301", "percentage": 100, "sign": -1 },
+            { "account": "4351", "percentage": 100, "sign": 1 },
+            { "account": "9411", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Boodschappen {{relation}}",
+        "validFor": [ 0, -300 ],
+        "transactions": [
+            { "account": "0351", "percentage": 100, "sign": 1 },
+            { "account": "1301", "percentage": 100, "sign": -1 },
+            { "account": "4361", "percentage": 100, "sign": 1 },
+            { "account": "9411", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Recreatie {{relation}}",
+        "validFor": [ 0, -1500 ],
+        "transactions": [
+            { "account": "0351", "percentage": 100, "sign": 1 },
+            { "account": "1301", "percentage": 100, "sign": -1 },
+            { "account": "4363", "percentage": 100, "sign": 1 },
+            { "account": "9411", "percentage": 100, "sign": -1 }
+        ]
+    },
+    {
+        "description": "Heilbron gezinspakket + WA(Megane,Evanda,Scooter)",
+        "validFor": [ -239.73 ],
+        "transactions": [
+            { "account": "0151", "fixed":  92.17, "sign": 1 },
+            { "account": "0251", "fixed":  45.21, "sign": 1 },
+            { "account": "0351", "fixed": 102.35, "sign": 1 },
+            { "account": "1301", "fixed": 239.73, "sign": -1 },
+            { "account": "4152", "fixed":  47.34, "sign": 1 },
+            { "account": "4153", "fixed":  44.83, "sign": 1 },
+            { "account": "4253", "fixed":  45.21, "sign": 1 },
+            { "account": "4353", "fixed": 102.35, "sign": 1 },
+            { "account": "9411", "fixed": 239.73, "sign": -1 }
+        ]
+    }
+]

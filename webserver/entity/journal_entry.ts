@@ -1,8 +1,9 @@
-import { Entity, Column, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany, OneToOne } from "typeorm";
 import { SharedEntityColumns } from '../shared_enity_columns';
 import { AccountTransaction } from './account_transaction';
 import { MinLength, IsDate } from 'class-validator';
 import { Type } from 'class-transformer';
+import { BankTransaction } from './bank_transaction';
 
 @Entity()
 export class JournalEntry extends SharedEntityColumns {
@@ -17,4 +18,7 @@ export class JournalEntry extends SharedEntityColumns {
 
     @OneToMany( type => AccountTransaction, accountTransaction => accountTransaction.account )
     transactions!: AccountTransaction[];
+
+    @OneToOne( () => BankTransaction, bankTransaction => bankTransaction.journalEntry, { nullable: true} )
+    bankTransaction!: BankTransaction
 }

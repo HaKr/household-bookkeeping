@@ -5,9 +5,6 @@ import {createConnection, Connection, EntityManager, QueryFailedError} from "typ
 import { DebitOrCredit } from "../constants";
 
 import { Group } from "../entity/group";
-import { GroupRepository } from "../repository/group_repository";
-
-import { Account } from "../entity/account";
 
 interface MasterGroupData {
     number: string, name: string, parent?: string, sign?: DebitOrCredit
@@ -21,35 +18,6 @@ const masterGroupData:MasterGroupData[] = [
     { number: "EL", name: "Uitgaven", parent: "E", sign: DebitOrCredit.Debit },
     { number: "ER", name: "Inkomsten", parent: "E", sign: DebitOrCredit.Credit  }
 ];
-
-async function test( manager: EntityManager ){
-    const account1 = new Account();
-    account1.number = "4351";
-    account1.name = "Account 1";
-    await manager.save( account1 );
-    console.log( `Created account ${account1.id}`);
-
-    const account2 = new Account();
-    account2.number = "4361";
-    account2.name = "Account 2";
-    await manager.save( account2 );
-    console.info( `Created account ${account2.id}`);
-
-    const group1 = new Group()
-    group1.number = "B";
-    group1.name = "Group B";
-    await manager.save( group1 );
-    console.info( `Created account ${JSON.stringify(group1)}`);
-
-    const group2 = new Group()
-    group2.number = "B1";
-    group2.name = "Group B.1";
-    group2.parent = group1;
-    await manager.save( group2 );
-    console.info( `Created account ${JSON.stringify(group2)}`);
-
-    return true;
-}
 
 async function insertSchema( manager: EntityManager ){
     const groupsByNumber = new Map<string,Group>();
@@ -83,6 +51,7 @@ async function insertSchema( manager: EntityManager ){
 
     return !failed;
 }
+
 createConnection().then(async connection => {
     const queryRunner = connection.createQueryRunner();
 

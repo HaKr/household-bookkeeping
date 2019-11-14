@@ -7,7 +7,6 @@ import { SUCCESS } from '../http-status-codes';
 
 import { JournalEntry as JournalEntryArgument } from '../params/journal_entry';
 
-import { JournalEntry } from "../entity/journal_entry";
 import { JournalEntryRepository } from '../repository/journal_entry_repository';
 
 @JsonController('/journal')
@@ -16,12 +15,12 @@ export class JournalController {
     
     @Get()
     private getAll(){
-        return this.journalRepository.find()
+        return this.journalRepository.find({relations: ["transactions"]})
     }
 
     @Get("/:id")
     private getOne( @Param("id") id: number ) {
-        return this.journalRepository.findOne( id );
+        return this.journalRepository.findOne( id, {relations: ["transactions"]} );
     }
 
     // private async create( @Body() journal: any ){

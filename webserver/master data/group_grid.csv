@@ -1,37 +1,28 @@
-Naam,Type,Nr,Parent,used
+Naam,Nr,Parent
 
-ING Cindy,F,1101,BL,1
-ING Harry,F,1201,BL,1
-ING Gezamenlijk,F,1301,BL,1
-ING Auto,F,1302,BL,1
-Overig,F,2000,BL,1
+Bankrekeningen,11,BL
 
-Reserveringen Cindy,B,121,BR,2
-Budget variabele lasten Cindy,B,1216,121,6
+Reserveringen Cindy,01,BR
 
-Reserveringen Harry,B,122,BR,2
-Budget variabele lasten Harry,B,1226,122,6
+Reserveringen Harry,02,BR
 
-Reserveringen gezamenlijk,B,123,BR,3
-Budget variabele lasten gezamenlijk,B,1236,123,5
+Reserveringen gezamenlijk,03,BR
 
-Uitgaven,R,41,EL,1
-Uitgaven Cindy,R,411,41,0
-Vaste lasten Cindy,R,4115,411,5
-Variabele lasten Cindy,R,4116,411,6
+Uitgaven,41,EL
+Uitgaven Cindy,411,41
+Vaste lasten Cindy,4115,411
+Variabele lasten Cindy,4116,411
 
-Uitgaven Harry,R,412,41,0
-Vaste lasten Harry,R,4125,412,6
-Variabele lasten Harry,R,4126,412,6
+Uitgaven Harry,412,41
+Vaste lasten Harry,4125,412
+Variabele lasten Harry,4126,412
 
-Gezamenlijke uitgaven,R,413,41,0
-Gezamenlijke variabele lasten,R,4136,413,7
-Gezamenlijke vaste lasten,R,4135,413,6
+Gezamenlijke uitgaven,413,41
+Gezamenlijke vaste lasten,4135,413
+Gezamenlijke variabele lasten,4136,413
 
-Budgetten,R,42,EL,1
+Resultaat inkomsten,92,ER
+Inkomensten,921,92
 
-Kostendekking,R,91,ER,1
-
-Inkomens,R,92,ER,2
-
-Gezinsbijdragen,R,93,ER,1
+Resultaat gezinsbijdragen,93,ER
+Bijdragen aan gezin,931,93

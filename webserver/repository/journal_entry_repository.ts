@@ -42,7 +42,7 @@ export class JournalEntryRepository extends Repository<JournalEntry> {
             const groupCategoryBalanceRepository = queryRunner.manager.getRepository( GroupCategoryBalance );
             
             const categoryBalances = await groupCategoryBalanceRepository.find();
-            const messages = [];
+            const messages: string[] = [];
 
             for (const categoryBalance of categoryBalances ){
                 if (categoryBalance.amount != 0 ) {

@@ -10,8 +10,8 @@ interface MasterGroupData {
 const masterGroupData:MasterGroupData[] = [
     { number: "B", name: "Balans" },
     { number: "E", name: "Uitgaven en Inkomsten" },
-    { number: "BL", name: "Activa", parent: "B", sign: DebitOrCredit.Debit },
-    { number: "BR", name: "Passiva", parent: "B", sign: DebitOrCredit.Credit  },
+    { number: "BL", name: "Financiële middelen", parent: "B", sign: DebitOrCredit.Debit },
+    { number: "BR", name: "Reserveringen", parent: "B", sign: DebitOrCredit.Credit  },
     { number: "EL", name: "Uitgaven", parent: "E", sign: DebitOrCredit.Debit },
     { number: "ER", name: "Inkomsten", parent: "E", sign: DebitOrCredit.Credit  }
 ]

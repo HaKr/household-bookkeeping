@@ -6,7 +6,7 @@ import { GroupRepository } from '../repository/group_repository';
 
 import { Account } from '../entity/account';
 
-type CsvStructure = Record<"Naam" | "Nr" | "SoortNr", string>;
+type CsvStructure = Record<"Naam" | "Nr" | "GroupNr", string>;
 
 export class InsertGroupGrid implements MigrationInterface{
     name = "Insert account list 1573134558986"
@@ -19,12 +19,12 @@ export class InsertGroupGrid implements MigrationInterface{
             const newAccount = new Account()
             newAccount.number = gridLine.Nr;
             newAccount.name = gridLine.Naam;
-            const parentGroup = (await groupRepository.findByNumber( gridLine.SoortNr ));
+            const parentGroup = (await groupRepository.findByNumber( gridLine.GroupNr ));
             if (parentGroup) {
                 newAccount.group = parentGroup;
                 await queryRunner.manager.save( newAccount );    
             } else {
-                console.error( `Account: Could not find group ${gridLine.SoortNr} for account ${gridLine.Nr}: ${gridLine.Naam}.` );
+                console.error( `Account: Could not find group ${gridLine.GroupNr} for account ${gridLine.Nr}: ${gridLine.Naam}.` );
                 failed += 1;
             }
         }

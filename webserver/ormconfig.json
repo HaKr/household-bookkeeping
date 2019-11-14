@@ -6,7 +6,7 @@
    "password": "Alm!ghty1",
    "database": "ledger",
    "synchronize": false,
-   "logging": ["error", "warn", "schema"],
+   "logging": [ "error", "warn", "schema" ],
    "entities": [
       "./entity/**/*.ts", "./**/build/entity/*.js"
    ],

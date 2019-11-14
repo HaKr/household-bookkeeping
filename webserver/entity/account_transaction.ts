@@ -2,7 +2,7 @@ import { Entity, Column, OneToOne, ManyToOne } from "typeorm";
 import { SharedEntityColumns } from '../shared_enity_columns';
 import { JournalEntry } from './journal_entry';
 import { Account } from './account';
-import { DebitOrCredit } from '../constants';
+import { DebitOrCredit, CURRENCY_DIMENSIONS } from '../constants';
 
 @Entity()
 export class AccountTransaction extends SharedEntityColumns {
@@ -17,6 +17,6 @@ export class AccountTransaction extends SharedEntityColumns {
     })
     sign!: DebitOrCredit;
 
-    @Column( {type:"decimal", precision: 11, scale: 2})
+    @Column( CURRENCY_DIMENSIONS )
     amount: number = 0.00;
 }

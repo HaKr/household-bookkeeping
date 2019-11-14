@@ -3,6 +3,7 @@ import {Entity, Column, Index, ManyToOne, OneToMany, OneToOne, JoinColumn} from 
 import { SharedEntityColumns } from "../shared_enity_columns";
 import { Group } from './group';
 import { AccountTransaction } from './account_transaction';
+import { AccountTransactionTemplate } from "./account_transaction_template";
 
 @Entity()
 export class Account extends SharedEntityColumns {
@@ -18,4 +19,7 @@ export class Account extends SharedEntityColumns {
 
     @OneToMany( type => AccountTransaction, accountTransaction => accountTransaction.account )
     transactions!: AccountTransaction[]
+
+    @OneToMany( type => AccountTransactionTemplate, accountTransactionTemplate => accountTransactionTemplate.account )
+    transactionTemplates!: AccountTransactionTemplate[]
 }

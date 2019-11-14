@@ -2,7 +2,6 @@ import { MinLength, IsDate, MaxLength, ValidateNested, ArrayMinSize } from 'clas
 import { Type } from 'class-transformer';
 
 import { AccountTransaction } from "./account_transaction";
-import { AccountIdMustExist } from '../validator/existing_account_id';
 
 export class JournalEntry  {
     

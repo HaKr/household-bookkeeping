@@ -1,0 +1,86 @@
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: smaller;
+    }
+
+    .debit-or-credit {
+        width: 43% !important;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    body {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+.top-level {
+    clear: both;
+    margin-bottom: 1em;
+    break-before: page;
+}
+
+.debit-or-credit {
+    min-width: 25ex;
+    width:44%;
+    float: left;
+    margin-left: 1em;
+    margin-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+h2 {
+    text-align: center;
+}
+
+table{ 
+    width: 100%;
+}
+
+
+.group {
+    border-bottom: solid thin blue;
+    border-top: solid thin blue;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.group.g413 {
+    break-before: page;
+}
+
+span.account-balance, span.account-number {
+    display: inline-block;
+}
+
+span.account-balance {
+    float: right;
+}
+
+h3 > span.account-balance {
+    padding-right: 1ex;
+}
+
+.account-number {
+    width: 5ex;
+}
+
+.account-balance {
+    width: 10ex;
+    text-align: right;
+}
+
+h4 {
+    margin: 0.5ex 0 0.75ex;
+}

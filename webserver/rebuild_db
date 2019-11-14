@@ -1,4 +1,17 @@
 #/usr/bin/env sh
-node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:drop
-node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:sync
-node_modules/.bin/ts-node node_modules/typeorm/cli.js migration:run
+set -ex
+
+WHAT=$1
+
+if [ "$WHAT" = "--no-schema" ]; then
+    WHAT="--full"
+else
+    node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:drop
+    node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:sync
+    node_modules/.bin/ts-node node_modules/typeorm/cli.js migration:run
+fi
+
+if [ "$WHAT" = "--full" ]; then
+    npm run fixture:sample-templates
+    npm run fixture:sample-journal
+fi

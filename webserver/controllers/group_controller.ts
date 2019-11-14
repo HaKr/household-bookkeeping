@@ -1,7 +1,7 @@
 import {getManager} from "typeorm";
 
 import { Request, Response } from 'express';
-import { JsonController, Get, Post } from 'routing-controllers';
+import { JsonController, Get, Post, Param } from 'routing-controllers';
 // import { Logger } from '@overnightjs/logger';
 
 import { SUCCESS, ERROR } from '../http-status-codes';
@@ -22,6 +22,11 @@ export class GroupController {
         return groupTree;
     }
 
+    @Get("/:id")
+    private getOne( @Param("id") id: number ) {
+        return this.groupRepository.findOne( id, {relations: ["accounts"] } );
+    }
+
     @Post()
     private async create(  req: Request, res: Response ){
         console.log( "Group::create" );
@@ -39,7 +44,7 @@ export class GroupController {
             const childSum = await this.getBalances( group.groups );
             group.amount = amount + childSum;
             sum += group.amount;
-            console.log( `[${group.id}]${group.number}-${group.name}: ${group.sign} * ${group.amount}, ${childSum}, (${sum})` )
+            //console.log( `[${group.id}]${group.number}-${group.name}: ${group.sign} * ${group.amount}, ${childSum}, (${sum})` )
         }
         return sum;
     }
