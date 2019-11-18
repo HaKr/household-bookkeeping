@@ -46,6 +46,7 @@ import { JournalTemplateRepository } from '../repository/journal_template_reposi
                         console.error( `Account "${number}" not found for ${journalEntry.description}.` );
                     }
                 }
+                if ( journalEntry.description.startsWith("f) ")) console.dir( journalEntry, {depth: 4} );
             }
             journalEntry.bookingDate = new Date( Date.parse( entry.date ) );
             const result = await journalEntryRepository.addWithTransactions( journalEntry );

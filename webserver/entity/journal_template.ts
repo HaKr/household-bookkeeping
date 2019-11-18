@@ -7,6 +7,7 @@ import { CURRENCY_DIMENSIONS } from '../constants';
 import { JournalEntry} from "../params/journal_entry";
 import { AccountTransaction as AccountTransactionArgument} from "../params/account_transaction";
 import { transcode } from 'buffer';
+import { BankAccountJournalTemplateConnection } from './bank_account_journal_template_connection';
 
 @Entity()
 export class JournalTemplate extends SharedEntityColumns {
@@ -23,6 +24,9 @@ export class JournalTemplate extends SharedEntityColumns {
 
     @OneToMany( type => AccountTransactionTemplate, accountTransaction => accountTransaction.journalTemplate )
     transactionTemplates!: AccountTransactionTemplate[];
+
+    @OneToMany( type => BankAccountJournalTemplateConnection, templateConnection => templateConnection.journalTemplate )
+    templateConnections!: BankAccountJournalTemplateConnection[];
 
     public isValidFor( amount: number ){
         return this.validMin <= amount && amount < this.validMax;

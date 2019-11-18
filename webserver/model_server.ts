@@ -15,6 +15,7 @@ const app = createExpressServer({
         controllers.AccountController,
         controllers.JournalTemplateController,
         controllers.JournalController,
+        controllers.JournalTransactionController,
         controllers.GroupController
     ] 
 });

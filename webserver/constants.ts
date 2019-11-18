@@ -16,3 +16,10 @@ export enum TransactionTemplateType {
 };
 
 export const CURRENCY_DIMENSIONS: { type?: any, precision?: number, scale?: number } = { type:"decimal", precision: 11, scale: 2 };
+
+export const SIZES = {
+    NAME: 50,
+    REFERENCE: 64,
+    BANK_DESCRIPTION: 250,
+    DESCRIPTION: 100
+};

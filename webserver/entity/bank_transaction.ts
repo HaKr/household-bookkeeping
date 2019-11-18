@@ -20,10 +20,10 @@ export class BankTransaction extends SharedEntityColumns {
     amount: number = 0.00;
 
 
-    @Column( {type: "varchar", length: 50} )
+    @Column( {type: "varchar", length: 64} )
     relationReference!: string
 
-    @Column( {type: "varchar", length: 300})
+    @Column( {type: "varchar", length: 400})
     description!: string;
 
     @OneToOne( () => JournalEntry, journalEntry => journalEntry.bankTransaction, { nullable: true } )

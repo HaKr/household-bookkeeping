@@ -3,6 +3,7 @@ import { SharedEntityColumns } from '../shared_enity_columns';
 import { BankTransaction } from './bank_transaction';
 import { MinLength, IsDate } from 'class-validator';
 import { Type } from 'class-transformer';
+import { BankAccountJournalTemplateConnection } from './bank_account_journal_template_connection';
 
 @Entity()
 export class BankAccount extends SharedEntityColumns {
@@ -17,4 +18,7 @@ export class BankAccount extends SharedEntityColumns {
 
     @OneToMany( type => BankTransaction, bankTransaction => bankTransaction.bankAccount )
     transactions!: BankTransaction[];
+
+    @OneToMany( type => BankAccountJournalTemplateConnection, templateConnection => templateConnection.bankAccount )
+    templateConnections!: BankAccountJournalTemplateConnection[];
 }

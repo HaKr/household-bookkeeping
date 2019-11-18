@@ -29,7 +29,7 @@ export class AccountTransactionTemplate extends SharedEntityColumns {
         return this.method === TransactionTemplateType.Fixed ?
             this.sign * this.amount :
             this.method === TransactionTemplateType.Percentage ?
-                this.sign * this.amount / 100 * originalAmount :
+                this.sign * Math.round(this.amount * originalAmount) / 100 :
                 this.sign * subtotal
         ;
     }

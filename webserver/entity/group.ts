@@ -1,7 +1,7 @@
 import {Entity, Column, Index, Tree, TreeChildren, TreeParent, OneToMany} from "typeorm";
 
 import { SharedEntityColumns } from "../shared_enity_columns";
-import { DebitOrCredit } from '../constants';
+import { DebitOrCredit, SIZES } from '../constants';
 import { Account } from './account';
 
 @Entity()
@@ -11,7 +11,7 @@ export class Group extends SharedEntityColumns {
     @Column({length: 8, unique: true})
     number!: string;
 
-    @Column({length: 60})
+    @Column({length: SIZES.NAME })
     name!: string;
 
     @Column({ 
