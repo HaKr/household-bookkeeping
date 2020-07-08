@@ -1,4 +1,4 @@
-import {EntityRepository, Repository} from "typeorm";
+import {EntityRepository, Repository, QueryRunner} from "typeorm";
 
 import { JournalEntry } from '../entity/journal_entry';
 import { JournalEntry as JournalEntryArgument } from '../params/journal_entry';
@@ -10,14 +10,17 @@ import { Account } from '../entity/account';
 @EntityRepository(JournalEntry)
 export class JournalEntryRepository extends Repository<JournalEntry> {
 
-    async addWithTransactions( journalEntryArgument: JournalEntryArgument ){
+    async addWithTransactions( journalEntryArgument: JournalEntryArgument, runner: QueryRunner | null = null ){
         const result: { errors?: string[], record?: JournalEntry } = {  };
         const journalEntry = new JournalEntry();
+        const isolated = runner === null;
+        const queryRunner = isolated ? this.manager.connection.createQueryRunner() : runner!;
 
-        const queryRunner = this.manager.connection.createQueryRunner();
-        await queryRunner.connect();
+        if (isolated){
+            await queryRunner.connect();
 
-        await queryRunner.startTransaction("READ UNCOMMITTED");
+            await queryRunner.startTransaction("READ UNCOMMITTED");
+        }
         try {
             const journalRepository = queryRunner.manager.getRepository( JournalEntry );
             const accountRepositry = queryRunner.manager.getRepository( Account );
@@ -45,25 +48,25 @@ export class JournalEntryRepository extends Repository<JournalEntry> {
             const messages: string[] = [];
 
             for (const categoryBalance of categoryBalances ){
-                if (categoryBalance.amount != 0 ) {
-                    messages.push( `Category "${categoryBalance.category}" has balance ${categoryBalance.amount<0 ? "CR" : "DB"} ${Math.abs(categoryBalance.amount)}.` );
+                if (Math.round(categoryBalance.balance*100) != 0 ) {
+                    messages.push( `Category "${categoryBalance.category}" has balance ${categoryBalance.balance<0 ? "CR" : "DB"} ${Math.abs(categoryBalance.balance)}.` );
                 }
             }
 
             if (messages.length > 0){
-                await queryRunner.rollbackTransaction();
+                if (isolated ) await queryRunner.rollbackTransaction();
                 result.errors = messages;
             } else {
-                await queryRunner.commitTransaction();
+                if (isolated ) await queryRunner.commitTransaction();
                 result.record = journalEntry;
             }
         } catch (e) {
             const err: Error = e;
             result.errors = [err.message];
             console.error( "Create journal entry failed", result );
-            await queryRunner.rollbackTransaction();
+            if (isolated ) await queryRunner.rollbackTransaction();
         } finally {
-            await queryRunner.release();
+            if ( isolated ) await queryRunner.release();
         }
         return result;
     }

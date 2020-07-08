@@ -1,4 +1,4 @@
-import { MinLength, IsDate, ValidateNested, ArrayMinSize, IsInt, ArrayMaxSize } from 'class-validator';
+import { MinLength, ValidateNested, ArrayMinSize, IsInt, ArrayMaxSize } from 'class-validator';
 import { Type } from 'class-transformer';
 
 import { AccountTransactionTemplate } from "./account_transaction template";

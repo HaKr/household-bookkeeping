@@ -88,6 +88,6 @@ export class RelativeSubtotalCalculator {
 function format( amount: number, category: string, suffix = "" ): Unbalanced | null {
     const stringLength = suffix.length > 0 ? 1 : 2;
     const value = Math.abs( amount ).toFixed( stringLength )+suffix;
-    if (value === "0.00" || value === "0.0%" ) return null;
+    if (amount > -0.005 && amount < 0.005) return null;
     else return { category, dbcr: amount < 0 ? "CR" : "DB", value };
 }

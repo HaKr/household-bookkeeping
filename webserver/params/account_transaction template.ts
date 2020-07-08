@@ -5,7 +5,6 @@ const INVALID_PERCENTAGE = "Amount may not be negative, use the sign for that.";
 
 export class AccountTransactionTemplate  {
 
-    @Min( 1 )
     accountId!: number
 
     @IsEnum( DebitOrCredit )
@@ -21,11 +20,13 @@ export class AccountTransactionTemplate  {
     percentage!: number;
 
     public get method(): TransactionTemplateType {
-        return typeof this.fixed == "number" ?
-            TransactionTemplateType.Fixed :
-            typeof this.percentage == "number" ?
-                TransactionTemplateType.Percentage :
-                TransactionTemplateType.Remainder
+        return this.accountId < 0 ?
+            TransactionTemplateType.Bank :
+            typeof this.fixed == "number" ?
+                TransactionTemplateType.Fixed :
+                typeof this.percentage == "number" ?
+                    TransactionTemplateType.Percentage :
+                    TransactionTemplateType.Remainder
         ;
     }
 

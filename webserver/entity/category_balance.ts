@@ -6,7 +6,7 @@ import { Group } from './group';
 @ViewEntity({ 
     expression: (connection: Connection) => connection.createQueryBuilder()
         .select("group.category", "category")
-        .addSelect("SUM( account_with_balance.amount )", "amount")
+        .addSelect("SUM( account_with_balance.balance )", "balance")
         .from(Group, "group")
         .where( "category is not null" )
         .leftJoin(
@@ -22,6 +22,6 @@ export class GroupCategoryBalance {
 
 
     @ViewColumn()
-    amount!: number 
+    balance!: number 
 
 }

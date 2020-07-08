@@ -16,11 +16,11 @@ export class Account extends SharedEntityColumns {
     name!: string;
 
     @ManyToOne( type => Group, group => group.accounts )
-    group!: Group
+    group!: Group;
 
     @OneToMany( type => AccountTransaction, accountTransaction => accountTransaction.account )
-    transactions!: AccountTransaction[]
+    transactions!: AccountTransaction[];
 
     @OneToMany( type => AccountTransactionTemplate, accountTransactionTemplate => accountTransactionTemplate.account )
-    transactionTemplates!: AccountTransactionTemplate[]
+    transactionTemplates!: AccountTransactionTemplate[];
 }

@@ -1,4 +1,4 @@
-import {EntityRepository, Repository} from "typeorm";
+import {EntityRepository, Repository, QueryRunner} from "typeorm";
 
 import { JournalTemplate } from '../entity/journal_template';
 import { JournalTemplate as JournalTemplateArgument } from '../params/journal_template';
@@ -10,58 +10,66 @@ import { RelativeSubtotalCalculator } from '../balance_calculators';
 @EntityRepository(JournalTemplate)
 export class JournalTemplateRepository extends Repository<JournalTemplate> {
 
-    async addWithTransactions( journalEntryArgument: JournalTemplateArgument ){
+    async addWithTransactions( journalEntryArgument: JournalTemplateArgument, runner: QueryRunner | null = null ){
         const result: { errors?: any[], record?: JournalTemplate } = {  };
-        const journalEntry = new JournalTemplate();
+        const journalTemplate = new JournalTemplate();
+        const isolated = runner === null;
+        const queryRunner = isolated ? this.manager.connection.createQueryRunner() : runner!;
+        if ( isolated )
+        {
+            await queryRunner.connect();
 
-        const queryRunner = this.manager.connection.createQueryRunner();
-        await queryRunner.connect();
+            await queryRunner.startTransaction("READ UNCOMMITTED");
+        }
 
-        await queryRunner.startTransaction("READ UNCOMMITTED");
         try {
-            const journalRepository = queryRunner.manager.getRepository( JournalTemplate );
+            const journalTemplateRepository = queryRunner.manager.getRepository( JournalTemplate );
             const accountRepositry = queryRunner.manager.getRepository( Account );
-            const accountTransactionRepositry = queryRunner.manager.getRepository( AccountTransactionTemplate );
+            const accountTransactionTemplateRepositry = queryRunner.manager.getRepository( AccountTransactionTemplate );
 
-            journalEntry.description = journalEntryArgument.description;
-            journalEntry.validMin = journalEntryArgument.validMin;
-            journalEntry.validMax = journalEntryArgument.validMax;
+            journalTemplate.description = journalEntryArgument.description;
+            journalTemplate.validMin = journalEntryArgument.validMin;
+            journalTemplate.validMax = journalEntryArgument.validMax;
 
-            journalEntry.transactionTemplates = [];
-            await journalRepository.insert( journalEntry );
+            journalTemplate.transactionTemplates = [];
+            await journalTemplateRepository.insert( journalTemplate );
             const calculator = new RelativeSubtotalCalculator();
 
             for ( const transactionArgument of journalEntryArgument.transactionTemplates ){
-                const id = transactionArgument.accountId;
-                const account = await accountRepositry.findOne( id, { relations: ["group"] } );
-                if ( !account  ) throw new Error( `accountId ${id} unknown` );
+                let category: string;
                 const accountTransaction = new AccountTransactionTemplate();
-                accountTransaction.account = account;
+                const id = transactionArgument.accountId;
+                if (id > 0){
+                    const account = await accountRepositry.findOne( id, { relations: ["group"] } );
+                    if ( !account  ) throw new Error( `accountId ${id} unknown` );
+                    accountTransaction.account = account;
+                    category = account.group.category;
+                } else category = "B";
                 accountTransaction.method = transactionArgument.method;
                 accountTransaction.amount = transactionArgument.amount;
                 accountTransaction.sign = transactionArgument.sign;
-                accountTransaction.journalTemplate = journalEntry;
-                accountTransactionRepositry.insert( accountTransaction );
-                calculator.add( account.group.category, accountTransaction.method, accountTransaction.amount, accountTransaction.sign );
+                accountTransaction.journalTemplate = journalTemplate;
+                accountTransactionTemplateRepositry.insert( accountTransaction );
+                calculator.add( category, accountTransaction.calculateMethod, accountTransaction.calculateAmount, accountTransaction.sign );
             }
 
             const balanceCheck = calculator.checkBalance();
 
             if (balanceCheck.isBalanced){
-                await queryRunner.commitTransaction();
-                result.record = journalEntry;
+                if ( isolated ) await queryRunner.commitTransaction();
+                result.record = journalTemplate;
             } else {
                 console.error( balanceCheck );
-                await queryRunner.rollbackTransaction();
+                if ( isolated ) await queryRunner.rollbackTransaction();
                 result.errors = balanceCheck.unbalanced;
             }
         } catch (e) {
             const err: Error = e;
             result.errors = [err.message];
             console.error( "Create journal entry failed", result );
-            await queryRunner.rollbackTransaction();
+            if ( isolated ) await queryRunner.rollbackTransaction();
         } finally {
-            await queryRunner.release();
+            if ( isolated ) await queryRunner.release();
         }
         return result;
     }

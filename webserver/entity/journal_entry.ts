@@ -16,7 +16,7 @@ export class JournalEntry extends SharedEntityColumns {
     @Column()
     description!: string;
 
-    @OneToMany( type => AccountTransaction, accountTransaction => accountTransaction.journalEntry )
+    @OneToMany( () => AccountTransaction, accountTransaction => accountTransaction.journalEntry, { onDelete:'CASCADE'} )
     transactions!: AccountTransaction[];
 
     @OneToOne( () => BankTransaction, bankTransaction => bankTransaction.journalEntry, { nullable: true} )

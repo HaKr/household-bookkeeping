@@ -5,7 +5,7 @@ export class AccountTransaction  {
 
 
     @Min( 1 )
-    accountId!: number
+    accountId!: number 
 
     @IsEnum( DebitOrCredit )
     sign!: DebitOrCredit;

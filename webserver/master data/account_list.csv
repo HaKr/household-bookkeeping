@@ -28,7 +28,8 @@ Nr,Naam,GroupNr
 1201,ING Harry,11
 1301,ING Gezamenlijk,11
 1302,ING Auto,11
-2000,Tussenrekening,BL
+2000,Tussenrekening bank,BL
+2001,Tussenrekening reconciliatie,BL
 4151,Kindrekening B&B,4115
 4152,Assurantiën Bo & Bengt,4115
 4153,Assurantiën,4115

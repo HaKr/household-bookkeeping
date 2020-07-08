@@ -15,6 +15,6 @@ export class Relation extends SharedEntityColumns {
     @Column( {length: SIZES.DESCRIPTION } )
     description!: string; 
 
-    @OneToMany( type => RelationReference, RelationReference => RelationReference.relation )
+    @OneToMany( type => RelationReference, RelationReference => RelationReference.relation, { onDelete: "CASCADE" } )
     references!: RelationReference[]
 }

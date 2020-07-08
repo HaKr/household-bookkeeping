@@ -2,8 +2,8 @@
     {
         "date": "2019-10-01",
         "description": "a) Salaris OL",
-        "template": "Salaris Objectif Lune",
-        "amount": 3425.96
+        "template": "Gebudgeteerd salaris Harry 2018",
+        "amount": 3305.4
     },
     {
         "date": "2019-01-27",
@@ -157,7 +157,7 @@
     {
         "date": "2019-10-10",
         "description": "n) Lidl",
-        "template": "Boodschappen {{relation}}",
+        "template": "Boodschappen",
         "amount": -99.27
     },
     {

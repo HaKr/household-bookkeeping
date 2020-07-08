@@ -2,18 +2,17 @@ import {ViewEntity, ViewColumn, Connection, ManyToOne, OneToMany} from "typeorm"
 import { Account } from './account';
 import { AccountBalance } from './account_balance';
 import { Group } from './group';
-import { AccountTransaction } from './account_transaction';
 
 @ViewEntity({ 
     expression: (connection: Connection) => connection.createQueryBuilder()
-        .addSelect( "account.id", "id")
-        .addSelect( "account.version", "version")
-        .addSelect( "account.number", "number")
-        .addSelect( "account.name", "name")
-        .addSelect( "account.groupId", "groupId")
-        .addSelect( "balances.amount", "amount")
+        .addSelect( "account.id", "id" )
+        .addSelect( "account.version", "version" )
+        .addSelect( "account.number", "number" )
+        .addSelect( "account.name", "name" )
+        .addSelect( "account.groupId", "groupId" )
+        .addSelect( "balances.balance", "balance" )
         .from( Account, "account" )
-        .leftJoin(AccountBalance, "balances", "balances.id = account.id")
+        .leftJoin( AccountBalance, "balances", "balances.id = account.id" )
 })
 export class AccountWithBalance {
     @ViewColumn()
@@ -26,9 +25,8 @@ export class AccountWithBalance {
     name!: string;
 
     @ViewColumn()
-    amount!: string
+    balance!: number;
 
     @ManyToOne( type => Group )
-    group!: Group
-
+    group!: Group;
 }

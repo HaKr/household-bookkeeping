@@ -6,7 +6,9 @@
    "password": "Alm!ghty1",
    "database": "ledger",
    "synchronize": false,
-   "logging": [ "query", "error", "warn", "schema" ],
+   "supportBigNumbers": true,
+   "bigNumberStrings": false,
+   "logging": [ "error", "warn", "schema" ],
    "entities": [
       "./entity/**/*.ts", "./**/build/entity/*.js"
    ],

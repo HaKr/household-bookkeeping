@@ -5,6 +5,6 @@ import { Account } from '../entity/account';
 export class AccountRepository extends Repository<Account> {
 
     findByNumber( number: string ) {
-        return this.findOne({ number });
+        return this.findOne({ number }, { relations: [ "transactions" ] });
     }
 }

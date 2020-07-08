@@ -7,7 +7,7 @@ import { Group } from './group';
     expression: (connection: Connection) => connection.createQueryBuilder()
         .select("group.id", "id")
         .addSelect( "MIN( group.number )", "number" )
-        .addSelect("SUM( account_with_balance.amount )", "amount")
+        .addSelect("SUM( account_with_balance.balance )", "balance")
         .from(Group, "group")
         .leftJoin(AccountWithBalance, "account_with_balance", "account_with_balance.groupId = group.id")
         .groupBy( "group.id" )
@@ -21,6 +21,6 @@ export class GroupBalance {
     number!: string
 
     @ViewColumn()
-    amount!: string
+    balance!: number
 
 }

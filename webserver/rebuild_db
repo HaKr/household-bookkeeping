@@ -1,17 +1,35 @@
 #/usr/bin/env sh
-set -ex
+set -e
 
-WHAT=$1
+INCLUDE_SCHEMA=1
+INCLUDE_FIXTURE=1
 
-if [ "$WHAT" = "--no-schema" ]; then
-    WHAT="--full"
-else
+for arg in "$@"
+do
+    case "$arg" in
+    --no-schema)
+            INCLUDE_SCHEMA=0
+            ;;
+    --no-fixture*)
+            INCLUDE_FIXTURE=0
+            ;;
+    *)      
+            echo "Argument $arg not recognized; use --no-schema or --no-bkz"
+            exit
+            ;;
+    esac
+done
+
+
+if [ $INCLUDE_SCHEMA -eq 1 ]; then
     node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:drop
     node_modules/.bin/ts-node node_modules/typeorm/cli.js schema:sync
     node_modules/.bin/ts-node node_modules/typeorm/cli.js migration:run
 fi
 
-if [ "$WHAT" = "--full" ]; then
-    npm run fixture:sample-templates
-    npm run fixture:sample-journal
+if [ $INCLUDE_FIXTURE -eq 1 ]; then
+    for f in ./fixture/0*.ts; do 
+        echo "$f"
+        npx ts-node "$f"
+    done
 fi

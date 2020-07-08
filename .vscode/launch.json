@@ -14,6 +14,28 @@
             "outFiles": [
                 "${workspaceFolder}/webserver/build/**/*.js"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Fixture 002",
+            "program": "${workspaceFolder}/webserver/fixture/002_insert_opening_balance_2018.ts",
+            "env": { "DEBUG": "*"},
+            "preLaunchTask": "build Typescript",
+            "outFiles": [
+                "${workspaceFolder}/webserver/build/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Fixture 004",
+            "program": "${workspaceFolder}/webserver/fixture/004_insert_bank_account_reconciliation.ts",
+            "env": { "DEBUG": "*"},
+            "preLaunchTask": "build Typescript",
+            "outFiles": [
+                "${workspaceFolder}/webserver/build/**/*.js"
+            ]
         }
     ]
 }

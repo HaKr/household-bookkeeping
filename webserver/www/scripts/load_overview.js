@@ -34,7 +34,7 @@ function getAccountBalance( account ){
 
     return new Promise( resolve => {
         accountsRes.addEventListener( "load", event => {
-            resolve( JSON.parse( event.target.responseText ).amount );
+            resolve( JSON.parse( event.target.responseText ).balance );
         });
 
         accountsRes.open( "GET", url );
@@ -60,7 +60,7 @@ function addSection( group ){
     const div = document.createElement("div");
     div.classList.add( "top-level" );
     const label =document.createElement("h2");
-    label.textContent = `${group.name} ${financial(group.amount, group.sign)}`;
+    label.textContent = `${group.name} ${financial(group.balance, group.sign)}`;
     div.appendChild( label );
     document.body.appendChild( div );
     addSectionColumn( div, group.groups[0] );
@@ -72,7 +72,7 @@ async function addSectionColumn( container, subgroup ){
     const div = document.createElement("div");
     div.classList.add( "debit-or-credit" );
     const label =document.createElement("h3");
-    label.innerHTML = `<span class=account-number></span>${subgroup.name}<span class=account-balance>${financial(subgroup.amount, subgroup.sign)}</span>`;
+    label.innerHTML = `<span class=account-number></span>${subgroup.name}<span class=account-balance>${financial(subgroup.balance, subgroup.sign)}</span>`;
     div.appendChild( label );
     container.appendChild( div );
     await addGroupContents( div, subgroup.groups );
@@ -89,7 +89,7 @@ async function addGroupContents( container, groups, level=4 ){
         container.appendChild( div );
         const label =document.createElement(`h${level}`);
         label.dataset.recordId = group.id;
-        label.innerHTML = `<span class=account-number>${group.number}</span>${group.name} <span class=account-balance>${financial(group.amount, group.sign)}</span>`;
+        label.innerHTML = `<span class=account-number>${group.number}</span>${group.name} <span class=account-balance>${financial(group.balance, group.sign)}</span>`;
         await addAccounts( div, group );
         await addGroupContents( div, group.groups, level );
         div.appendChild( label );
@@ -112,8 +112,8 @@ async function addAccounts( container, group ){
             nameCell.textContent = account.name;
             const balanceCell = tr.insertCell();
             balanceCell.classList.add("account-balance");
-            getAccountBalance( account ).then( amount => {
-                balanceCell.textContent = financial( amount, group.sign );
+            getAccountBalance( account ).then( balance => {
+                balanceCell.textContent = financial( balance, group.sign );
             })
             
         }

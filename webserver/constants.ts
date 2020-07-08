@@ -5,11 +5,13 @@ export enum DebitOrCredit {
 
 /**
  * How is the transaction amount to be determined?
+ * - Bank means that the full amount is to be booked on the linked financial account
  * - Fixed means the exact amount as specified in this template
  * - Percentage means that the template amount is the percentage of the amount of the instance
  * - Remainder means the value of the subtotal of all instantiated transactions thus far
  */
 export enum TransactionTemplateType {
+    Bank = "B",
     Fixed = "F",
     Percentage = "P",
     Remainder = "R"

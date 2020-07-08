@@ -1,10 +1,6 @@
 import * as csvtojson from "csvtojson";
 import * as fs from "fs";
 
-csvtojson({trim: true})
-    .fromFile("master\ data/upload/Alle_rekeningen_01-01-2018_31-10-2019.csv")
-    .then( parse );
-
 interface INGCSV {
     Datum: string,
     'Naam / Omschrijving': string,

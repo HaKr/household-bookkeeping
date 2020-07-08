@@ -25,7 +25,7 @@
       ]
     },
     "include": [
-      "./**/*.ts"
+      "./**/*.ts", "fixture/.005_insert_2018_bank_statements.ts"
     ],
     "exclude": [
       "./**/public/"

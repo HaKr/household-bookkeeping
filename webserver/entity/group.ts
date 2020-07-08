@@ -7,7 +7,6 @@ import { Account } from './account';
 @Entity()
 @Tree("nested-set")
 export class Group extends SharedEntityColumns {
-
     @Column({length: 8, unique: true})
     number!: string;
 
@@ -33,5 +32,5 @@ export class Group extends SharedEntityColumns {
     @OneToMany( type => Account, account => account.group )
     accounts!: Account[]
 
-    amount: number = 0.00;
+    balance: number = 0.00;
 }

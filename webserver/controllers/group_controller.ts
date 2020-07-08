@@ -39,11 +39,11 @@ export class GroupController {
         for ( const group of groupList ){
             const id = group.id;
             const groupBalance = await this.groupBalanceRepository.findOne( {id} );
-            const groupAmount = groupBalance instanceof GroupBalance ? parseFloat(groupBalance.amount) : 0;
+            const groupAmount = groupBalance instanceof GroupBalance ? parseFloat(groupBalance.balance as any) : 0;
             const amount = isNaN( groupAmount ) ? 0.0 : groupAmount;   
             const childSum = await this.getBalances( group.groups );
-            group.amount = amount + childSum;
-            sum += group.amount;
+            group.balance = amount + childSum;
+            sum += group.balance;
             //console.log( `[${group.id}]${group.number}-${group.name}: ${group.sign} * ${group.amount}, ${childSum}, (${sum})` )
         }
         return sum;
