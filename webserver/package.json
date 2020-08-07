@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@types/request": "^2.48.3",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.3.1",
     "class-validator": "^0.10.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
