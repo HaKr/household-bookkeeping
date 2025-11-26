@@ -34,7 +34,7 @@
   "dependencies": {
     "@types/request": "^2.48.3",
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1",
+    "class-validator": "^0.13.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql2": "^2.0.0",
